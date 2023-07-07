@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const users = require("./routes/users");
 
@@ -7,8 +9,7 @@ const app = express();
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB =
-  "mongodb+srv://ehmedthakur:Rrs3hDiFKsL0EGt2@cluster0.q2qsb4m.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = `mongodb+srv://ehmedthakur:${process.env.MONGODB_PASSWORD}@cluster0.q2qsb4m.mongodb.net/?retryWrites=true&w=majority`;
 
 main().catch((err) => console.log(err));
 async function main() {
